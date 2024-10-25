@@ -43,6 +43,8 @@ local_data = open(DATA,'r',encoding='UTF-8').read()
 if url_data != local_data:
     print(GREEN + 'An update is available!' + RESET)
     print(GREY + 'Updating show data...' + RESET)
+    o = open('old_data.csv','w',encoding='UTF-8')
+    o.write(local_data)
     f = open(DATA,'w',encoding='UTF-8')
     f.write(url_data)
     print('\033[F' + GREEN + 'Done updating!                ' + RESET)
@@ -90,7 +92,7 @@ if __name__ == '__main__':
 
         if blocklist:
             print(GREY + 'Without using the following:' + RESET)
-            for i in blocklist:
+            for i in sorted(blocklist):
                 print(i)
             print(f'{len(blocklist)} in blocklist')
             print()
