@@ -27,8 +27,6 @@ members = {}
 
 blocklist = []
 ROUND = 1
-STEP = 0
-history = {}
 
 GREEN = '\033[92m'
 GREY = '\033[30m'
@@ -84,6 +82,8 @@ def phase(cursor, valid_options, lookup_dict, condition=lambda x: True):
 
 if __name__ == '__main__':
     while True:
+        STEP = 0
+        history = {}
         print('\n' + f'Round {ROUND}')
         print(GREY + 'Connect the following people:' + RESET)
         print(f'{person_a} → {person_b}', '\n')
